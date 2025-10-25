@@ -6,5 +6,8 @@
     ],
     "black-formatter.interpreter": [
         "/root/miniconda3/envs/cargo3d/bin/python"
+    ],
+    "python.analysis.extraPaths": [
+        "./src"
     ]
 }

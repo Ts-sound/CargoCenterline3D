@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "tatsy.vscode-3d-preview"
+        "tatsy.vscode-3d-preview",
+        "ms-toolsai.jupyter"
     ]
 }
