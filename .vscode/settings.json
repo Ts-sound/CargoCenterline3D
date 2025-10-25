@@ -1,0 +1,10 @@
+{
+    "editor.formatOnSave": true,
+    "black-formatter.args": [
+        "--line-length",
+        "200"
+    ],
+    "black-formatter.interpreter": [
+        "/root/miniconda3/envs/cargo3d/bin/python"
+    ]
+}
