@@ -1,0 +1,2 @@
+# CargoCenterline3D-
+一个基于Python和PCL的3D点云处理工具，专门用于提取货箱内部几何特征并检测对称中心线。
