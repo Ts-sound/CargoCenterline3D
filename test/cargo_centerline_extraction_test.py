@@ -50,9 +50,6 @@ def plot_point_cloud(ax, points, title, color_map="viridis", colors=None):
     # Set title
     ax.set_title(title, fontsize=12)
 
-    # Set viewing angle
-    ax.view_init(elev=30, azim=45)
-
     return scatter
 
 

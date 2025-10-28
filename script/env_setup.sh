@@ -45,9 +45,10 @@ conda install -y \
 
 # Install development tools
 # echo "Installing development tools..."
-# conda install  -y \
-#     jupyterlab \
-#     jupyterlab-g
+conda install  -y \
+    jupyterlab \
+    jupyterlab-g \
+    ipympl
 
 # Create environment info file
 echo "Creating environment info file..."
