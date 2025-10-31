@@ -36,7 +36,7 @@ def generate_cargo_box_points(
     height=1.5,
     num_points=10000,
     noise=0.01,
-    include_top=False,
+    include_top=True,
     wall_thickness=0.05,
 ):
     """
@@ -59,8 +59,8 @@ def generate_cargo_box_points(
     # 计算各面的点数分配
     base_points = int(num_points * 0.4)
     side_points = int(num_points * 0.4)
-    end_points = int(num_points * 0.15)
-    top_points = int(num_points * 0.05) if include_top else 0
+    end_points = int(num_points * 0.1)
+    top_points = int(num_points * 0.1)
 
     # 底面点云 (主平面)
     bottom_points = np.random.rand(base_points, 3)
@@ -91,7 +91,8 @@ def generate_cargo_box_points(
     # 端面点云 (前后两端)
     for _ in range(end_points):
         # 随机选择前端或后端
-        end = random.choice([0, length])
+        # end = random.choice([0, length])
+        end = 0
 
         # 随机位置
         y = random.uniform(0, width)
@@ -147,8 +148,8 @@ def main():
     parser.add_argument("--height", type=float, default=1.5, help="货箱高度 (默认: 1.5)")
     parser.add_argument("--num_points", type=int, default=10000, help="总点数 (默认: 10000)")
     parser.add_argument("--noise", type=float, default=0.01, help="噪声水平 (默认: 0.01)")
-    parser.add_argument("--output", type=str, default="cargo_box.pcd", help="")
-    parser.add_argument("--top", action="store_true", help="包括顶面点云 (默认: False)")
+    parser.add_argument("--output", type=str, default="cargo_box2.pcd", help="")
+    parser.add_argument("--top", type=bool, default=True, help="包括顶面点云 (默认: True)")
     parser.add_argument("--thickness", type=float, default=0.05, help="箱壁厚度 (默认: 0.05)")
 
     args = parser.parse_args()
@@ -156,7 +157,7 @@ def main():
     print("生成货箱点云数据...")
     print(f"尺寸: {args.length} x {args.width} x {args.height}")
     print(f"点数: {args.num_points}, 噪声: {args.noise}")
-    print(f"箱壁厚度: {args.thickness},  顶面: {'是' if args.top else '否'}")
+    print(f"箱壁厚度: {args.thickness},  顶面: {'是' if args.thickness else '否'}")
 
     # 生成点云
     points = generate_cargo_box_points(
@@ -175,3 +176,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# example:
+# python test/generate_cargo_pcd.py --length 4.0 --width 2.5 --height 2.0 --num_points 20000 --output large_cargo2.pcd
